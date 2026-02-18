@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T08:22:35.988Z",
+  "updatedAt": "2026-02-18T08:23:06.608Z",
   "createdAt": "2026-02-18T07:59:38.607Z",
   "id": "hQ177jjDzJTQEj99",
   "name": "My workflow",
@@ -48,6 +48,7 @@
     {
       "parameters": {
         "resource": "file",
+        "operation": "edit",
         "owner": {
           "__rl": true,
           "value": "Lib0823",
@@ -71,7 +72,7 @@
         0
       ],
       "id": "b5c672f2-5945-45b5-8f14-88618cc82958",
-      "name": "Create a file",
+      "name": "Edit a file",
       "webhookId": "9e5dc878-9935-45e4-8846-40dd67c533fc",
       "credentials": {
         "githubApi": {
@@ -97,7 +98,7 @@
       "main": [
         [
           {
-            "node": "Create a file",
+            "node": "Edit a file",
             "type": "main",
             "index": 0
           }
@@ -115,7 +116,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "1d2ed3ba-095d-48e5-9303-46d3b2d9afe3",
+  "versionId": "34520e05-c960-4890-a40e-ee19ec72142b",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
