@@ -1,0 +1,132 @@
+{
+  "updatedAt": "2026-02-18T08:24:14.623Z",
+  "createdAt": "2026-02-18T07:59:38.607Z",
+  "id": "hQ177jjDzJTQEj99",
+  "name": "Git-CICD",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 4
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ee62934a-7f1d-4ae4-b8cc-6fe0e655219a",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "279e8890-a683-4ff2-aedf-12e2228c47a2",
+      "name": "Get many workflows",
+      "credentials": {
+        "n8nApi": {
+          "id": "kRcZ4K8RXgJsKX7S",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "Lib0823",
+          "mode": "list"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "AutomationWorkflow-n8n",
+          "mode": "list",
+          "cachedResultName": "AutomationWorkflow-n8n",
+          "cachedResultUrl": "https://github.com/Lib0823/AutomationWorkflow-n8n"
+        },
+        "filePath": "=workflows/{{ $json.name }}.json",
+        "fileContent": "={{ JSON.stringify($json, null, 2) }}",
+        "commitMessage": "=Daily backup: {{ $now.format('yyyy-MM-dd') }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "b5c672f2-5945-45b5-8f14-88618cc82958",
+      "name": "Create a file",
+      "webhookId": "9e5dc878-9935-45e4-8846-40dd67c533fc",
+      "credentials": {
+        "githubApi": {
+          "id": "5DeZFDxL2QrJXhzl",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many workflows": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "310c03b8-5fa4-4f30-aac1-106b48ea6ced",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-02-18T07:59:38.612Z",
+      "createdAt": "2026-02-18T07:59:38.612Z",
+      "role": "workflow:owner",
+      "workflowId": "hQ177jjDzJTQEj99",
+      "projectId": "YJHLOJMyXDb3SXcb"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
