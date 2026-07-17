@@ -1,4 +1,4 @@
-# AutomationWorkflow-n8n
+# Automate_News_Summary
 
 n8n을 활용한 뉴스 요약 알림 및 워크플로우 자동 백업 시스템
 
